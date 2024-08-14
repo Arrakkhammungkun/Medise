@@ -4,7 +4,7 @@ import UserLayout from '@/layout/UserLayout.vue'
 </script>
 <template>
     <UserLayout>
-      <h1>555555</h1>
+      
         <div class="flex justify-center mt-[100px]">
             <div class="flex justify-center flex-col bg-[#E1F5FE] w-full max-w-[800px] h-auto m-[10px]  relative rounded-2xl p-6 shadow-lg">
             <div class=" mb-4 text-center ">

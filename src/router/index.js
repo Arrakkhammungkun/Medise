@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import LoginView from '@/views/LoginView.vue'
 import SingUpView from '@/views/SignUpView.vue'
 import datadocterView from '@/views/DatadocterView.vue'
+import Appointment from '@/views/Appointment.vue'
 
 
 const router = createRouter({
@@ -28,7 +29,11 @@ const router = createRouter({
       name: 'datadocter',
       component: datadocterView
     },
-
+    {
+      path: '/appointment',
+      name: 'appointment',
+      component: Appointment
+    },
 
   ]
 })

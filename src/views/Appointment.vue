@@ -5,161 +5,161 @@ import UserLayout from '@/layout/UserLayout.vue'
 
 <template>
 
-    <div class="">
+  <div >
     
   
-      <div class="grow flex justify-center mt-[100px]" >
-        <!-- Left column (menu) -->
-        <div class="left grid grid-cols-1 divide-y divide-black " style="background-color: antiquewhite;" >
-          
-          <ul class="menu-list grid grid-cols-1 divide-y divide-black">
-            <li v-for="(item, index) in filteredMenu" :key="index">
-              <a href="#">{{ item }}</a>
-            </li>
-          </ul>
-        </div>
-  
-        <!-- Right column (page content) -->
-         <div>
-            <div class="bg-[#E1F5FE] w-full max-w-[800px] h-auto  mb-10 inline-block relative rounded-2xl p-6 shadow-lg ">
-    <div class=" mb-4 text-left">
-      <span class="font-bold text-xl">ดร.นพ. สาโรช สุวรรณสุทธิ</span>
-    </div>
-    
-    <div class="flex flex-wrap gap-4 justify-center md:justify-start">
-      <img src="/src/img/user.png"
-           alt="Doctor Image"
-           class="w-full max-w-[15rem] h-auto object-cover object-center rounded-lg">
+    <div class="grow flex justify-center mt-[100px]" >
+            <!-- Left column (menu) -->
+            <div class="left grid grid-cols-1 divide-y divide-black " style="background-color: antiquewhite;" >
+              
+              <ul class="menu-list grid grid-cols-1 divide-y divide-black">
+                <li v-for="(item, index) in filteredMenu" :key="index">
+                  <a href="#">{{ item }}</a>
+                </li>
+              </ul>
+            </div>
       
-      <div class="flex flex-col flex-grow">
-        <div class="flex items-center mb-2">
-          <span class="font-bold mr-2">
-            รพ.ที่สังกัด :</span>
-          <span>โรงพยาบาลสมิติเวช สุขุมวิท</span>
-        </div>
-        <div class="flex items-center mb-2">
-          <span class="font-bold mr-2">คะแนนรีวิว :</span>
-          <span>4.95 (267 รีวิว)</span>
-        </div>
-        <div class="flex items-center mb-2">
-          <span class="font-bold mr-2">ประเภทการรักษา :</span>
-          <span>Laser, Ultherapy, ปรับรูปหน้า, ผม-หนังศีรษะ...</span>
-        </div>
-        <div class="flex flex-col mt-4">
-          <span class="font-bold text-lg">ความชำนาญ</span>
-          <ul class="list-disc list-inside">
-            <li>โรคเส้นผม และการผ่าตัดปลูกถ่ายเส้นผม</li>
-            <!-- Add more specialties here if needed -->
-          </ul>
-        </div>
+            <!-- Right column (page content) -->
+          <div>
+                    <div class="bg-[#E1F5FE] w-full max-w-[800px] h-auto  mb-10 inline-block relative rounded-2xl p-6 shadow-lg ">
+              <div class=" mb-4 text-left">
+                <span class="font-bold text-xl">ดร.นพ. สาโรช สุวรรณสุทธิ</span>
+              </div>
+              
+              <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+                <img src="/src/img/doctor.png"
+                    alt="Doctor Image"
+                    class="w-full max-w-[15rem] h-auto object-cover object-center rounded-lg">
+                
+                <div class="flex flex-col flex-grow">
+                  <div class="flex items-center mb-2">
+                    <span class="font-bold mr-2">
+                      รพ.ที่สังกัด :</span>
+                    <span>โรงพยาบาลสมิติเวช สุขุมวิท</span>
+                  </div>
+                  <div class="flex items-center mb-2">
+                    <span class="font-bold mr-2">คะแนนรีวิว :</span>
+                    <span>4.95 (267 รีวิว)</span>
+                  </div>
+                  <div class="flex items-center mb-2">
+                    <span class="font-bold mr-2">ประเภทการรักษา :</span>
+                    <span>Laser, Ultherapy, ปรับรูปหน้า, ผม-หนังศีรษะ...</span>
+                  </div>
+                  <div class="flex flex-col mt-4">
+                    <span class="font-bold text-lg">ความชำนาญ</span>
+                    <ul class="list-disc list-inside">
+                      <li>โรคเส้นผม และการผ่าตัดปลูกถ่ายเส้นผม</li>
+                      <!-- Add more specialties here if needed -->
+                    </ul>
+                  </div>
 
 
 
-        <div class="flex flex-col mt-6">
-          <span class="font-bold text-lg mb-2">ค่าบริการ</span>
-          <ul class="list-disc list-inside">
-            <li>แชท: ฿400 (สุงสุด 15 นาทีต่อครั้ง)</li>
-            <li>วิดิโอคอล: ฿500 (สุงสุด 15 นาทีต่อครั้ง)</li>
+                  <div class="flex flex-col mt-6">
+                    <span class="font-bold text-lg mb-2">ค่าบริการ</span>
+                    <ul class="list-disc list-inside">
+                      <li>แชท: ฿400 (สุงสุด 15 นาทีต่อครั้ง)</li>
+                      <li>วิดิโอคอล: ฿500 (สุงสุด 15 นาทีต่อครั้ง)</li>
+                      
+                      <!-- Add more qualifications here if needed -->
+                    </ul>
+                  </div>
+                </div>
+              </div>
+                  </div>
+      <h2 class="font-bold text-2xl">เลือกวันนัดหมาย</h2>
+      <div class="p-8 max-w-4xl mx-auto bg-[#E1F5FE] rounded-xl shadow-lg space-y-6  mb-10">
+        <!-- Month and Year Selectors -->
+        <div class="flex justify-between items-center mb-4">
+          <select v-model="currentMonth" @change="updateCalendar" class="text-xl bg-white border-2  p-3 rounded-lg">
+            <option v-for="(month, index) in monthNames" :key="index" :value="index">
+              {{ month }}
+            </option>
+          </select>
+          <select v-model="currentYear" @change="updateCalendar" class="text-xl bg-white border-2  p-3 rounded-lg">
+            <option v-for="year in years" :key="year" :value="year">
+              {{ year }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Days of the Week -->
+        <div class="grid grid-cols-7 text-center font-semibold text-lg mb-2">
+          <div v-for="day in weekDays" :key="day" class="py-2">{{ day }}</div>
+        </div>
+
+        <!-- Days in the Month -->
+        <div class="grid grid-cols-7 text-center gap-2">
+          <!-- Blank spaces for the days before the start of the month -->
+          <div v-for="blank in firstDayOfMonth" :key="blank" class="py-4"></div>
+
+          <!-- Days of the current month -->
+          <div
+            v-for="day in daysInMonth"
+            :key="day"
+            :class="{
             
-            <!-- Add more qualifications here if needed -->
-          </ul>
+              'bg-green-500 text-white rounded-full': isSelectedDate(day),
+              'text-gray-500 cursor-not-allowed': isPastDate(day),
+              'cursor-pointer hover:bg-blue-100': !isSelectedDate(day) && !isPastDate(day)
+            }"
+            @click="selectDate(day)"
+            class="py-4 px-2 text-lg"
+          >
+            {{ day }}
+          </div>
+        </div>
+
+        <!-- Display Selected Appointment Date -->
+        <div v-if="selectedDate" class="mt-4 text-center text-xl font-semibold">
+          คุณเลือกวันที่: {{ formattedSelectedDate }}
         </div>
       </div>
-    </div>
-  </div>
-  <h2 class="font-bold text-2xl">เลือกวันนัดหมาย</h2>
-  <div class="p-8 max-w-4xl mx-auto bg-[#E1F5FE] rounded-xl shadow-lg space-y-6  mb-10">
-    <!-- Month and Year Selectors -->
-    <div class="flex justify-between items-center mb-4">
-      <select v-model="currentMonth" @change="updateCalendar" class="text-xl bg-white border-2  p-3 rounded-lg">
-        <option v-for="(month, index) in monthNames" :key="index" :value="index">
-          {{ month }}
-        </option>
-      </select>
-      <select v-model="currentYear" @change="updateCalendar" class="text-xl bg-white border-2  p-3 rounded-lg">
-        <option v-for="year in years" :key="year" :value="year">
-          {{ year }}
-        </option>
-      </select>
-    </div>
-
-    <!-- Days of the Week -->
-    <div class="grid grid-cols-7 text-center font-semibold text-lg mb-2">
-      <div v-for="day in weekDays" :key="day" class="py-2">{{ day }}</div>
-    </div>
-
-    <!-- Days in the Month -->
-    <div class="grid grid-cols-7 text-center gap-2">
-      <!-- Blank spaces for the days before the start of the month -->
-      <div v-for="blank in firstDayOfMonth" :key="blank" class="py-4"></div>
-
-      <!-- Days of the current month -->
-      <div
-        v-for="day in daysInMonth"
-        :key="day"
-        :class="{
+      <h class=" font-bold text-2xl mb-4">เลือกเวลานัดหมาย</h>
+      <div class="p-4 rounded-lg shadow-lg mb-10 bg-[#E1F5FE]">
         
-          'bg-green-500 text-white rounded-full': isSelectedDate(day),
-          'text-gray-500 cursor-not-allowed': isPastDate(day),
-          'cursor-pointer hover:bg-blue-100': !isSelectedDate(day) && !isPastDate(day)
-        }"
-        @click="selectDate(day)"
-        class="py-4 px-2 text-lg"
-      >
-        {{ day }}
-      </div>
-    </div>
+        <div class="grid grid-cols-3 gap-4">
+          <button
+            v-for="(time, index) in times"
+            :key="index"
+            :class="{
+              'p-2   border-2  rounded-lg text-center hover:bg-green-300': true,
+              'bg-green-500 text-white': selectedTime === time,
+              'text-gray-400 cursor-not-allowed': isPastTime(time)
+            }"
+            @click="selectTime(time)"
+            :disabled="isPastTime(time)"
+            
 
-    <!-- Display Selected Appointment Date -->
-    <div v-if="selectedDate" class="mt-4 text-center text-xl font-semibold">
-      คุณเลือกวันที่: {{ formattedSelectedDate }}
-    </div>
-  </div>
-  <h class=" font-bold text-2xl mb-4">เลือกเวลานัดหมาย</h>
-  <div class="p-4 rounded-lg shadow-lg mb-10 bg-[#E1F5FE]">
-    
-    <div class="grid grid-cols-3 gap-4">
-      <button
-        v-for="(time, index) in times"
-        :key="index"
-        :class="{
-          'p-2   border-2  rounded-lg text-center hover:bg-green-300': true,
-          'bg-green-500 text-white': selectedTime === time,
-          'text-gray-400 cursor-not-allowed': isPastTime(time)
-        }"
-        @click="selectTime(time)"
-        :disabled="isPastTime(time)"
-        
-
-      >
-        {{ time }}
-      </button>
-    </div>
-    <div v-if="selectedTime" class="mt-4 text-lg font-semibold text-center">
-      คุณได้เลือกเวลา: {{ selectedTime }}
-    </div>
-  </div>
-  <div class="flex justify-center items-center w-full mt-4 gap-4 mb-5">
-    <button class="bg-red-700 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2" >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  fill="currentColor" class="w-6 h-6 mr-3">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
-        <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
-      ยกเลิกการนัดหมาย
-    </button>
-    <button class="bg-green-500 border border-green-500 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2 " @click="confirmAppointment" >
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512 " fill="currentColor" class="w-6 h-6 mr-3">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z"/></svg>
-      ยืนยันการนัดหมาย
-    </button>
-  </div>
-  <div v-if="showConfirmation" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-      <div class="bg-white p-10 rounded-xl shadow-lg text-center">
-        <h2 class="text-2xl font-bold mb-4">ยืนยันการเลือก</h2>
-        <p class="text-lg">คุณได้เลือกวันที่: {{ formattedSelectedDate }}</p>
-        <p class="text-lg">เวลา: {{ selectedTime }}</p>
-        <button @click="closeModal" class="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg mr-5">ยกเลิก</button>
-        <button @click="closeModal" class="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg">ตกลง</button>
+          >
+            {{ time }}
+          </button>
+        </div>
+        <div v-if="selectedTime" class="mt-4 text-lg font-semibold text-center">
+          คุณได้เลือกเวลา: {{ selectedTime }}
+        </div>
       </div>
-    </div>
-          
+      <div class="flex justify-center items-center w-full mt-4 gap-4 mb-5">
+        <button class="bg-red-700 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2" >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"  fill="currentColor" class="w-6 h-6 mr-3">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+            <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
+          ยกเลิกการนัดหมาย
+        </button>
+        <button class="bg-green-500 border border-green-500 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2 " @click="confirmAppointment" >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512 " fill="currentColor" class="w-6 h-6 mr-3">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.<path d="M128 0c17.7 0 32 14.3 32 32l0 32 128 0 0-32c0-17.7 14.3-32 32-32s32 14.3 32 32l0 32 48 0c26.5 0 48 21.5 48 48l0 48L0 160l0-48C0 85.5 21.5 64 48 64l48 0 0-32c0-17.7 14.3-32 32-32zM0 192l448 0 0 272c0 26.5-21.5 48-48 48L48 512c-26.5 0-48-21.5-48-48L0 192zm64 80l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm128 0l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zM64 400l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z"/></svg>
+          ยืนยันการนัดหมาย
+        </button>
+      </div>
+      <div v-if="showConfirmation" class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          <div class="bg-white p-10 rounded-xl shadow-lg text-center">
+            <h2 class="text-2xl font-bold mb-4">ยืนยันการเลือก</h2>
+            <p class="text-lg">คุณได้เลือกวันที่: {{ formattedSelectedDate }}</p>
+            <p class="text-lg">เวลา: {{ selectedTime }}</p>
+            <button @click="closeModal" class="mt-6 px-6 py-2 bg-red-500 text-white rounded-lg mr-5">ยกเลิก</button>
+            <button @click="closeModal" class="mt-6 px-6 py-2 bg-green-500 text-white rounded-lg">ตกลง</button>
+          </div>
+        </div>
+              
         </div>
   
     </div>
@@ -189,15 +189,13 @@ import UserLayout from '@/layout/UserLayout.vue'
         '20:40 น.',
         '21:00 น.',
         '21:20 น.',
-        '21:40 น.',
+        '22:40 น.',
       ],
       selectedTime: null,
       currentDateTime: new Date(),
       activeComp: '',
       showConfirmation: false, // เพิ่ม property นี้เพื่อใช้ในการแสดง Modal
     };
-    
-
   },
   computed: {
     daysInMonth() {
@@ -213,7 +211,6 @@ import UserLayout from '@/layout/UserLayout.vue'
       const year = this.selectedDate.getFullYear();
       return `${day} ${month} ${year}`;
     },
-    
   },
   methods: {
     isToday(day) {
@@ -246,15 +243,22 @@ import UserLayout from '@/layout/UserLayout.vue'
       this.selectedDate = null; // Clear selected date when month/year changes
     },
     selectTime(time) {
-        if (!this.isPastTime(time)) {
+      if (!this.isPastTime(time)) {
         this.selectedTime = time;
       }
     },
     isPastTime(time) {
+      if (!this.selectedDate) return true; // ไม่ให้เลือกเวลาถ้ายังไม่ได้เลือกวันที่
+
       const [hours, minutes] = time.split(' ')[0].split(':').map(Number);
-      const now = new Date();
-      const selectedTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), hours, minutes);
-      return selectedTime < now;
+      const selectedDateTime = new Date(
+        this.selectedDate.getFullYear(),
+        this.selectedDate.getMonth(),
+        this.selectedDate.getDate(),
+        hours,
+        minutes
+      );
+      return selectedDateTime < new Date(); // ตรวจสอบว่าเวลาที่เลือกนั้นเป็นอดีตหรือไม่
     },
     confirmAppointment() {
       if (this.selectedDate && this.selectedTime) {
@@ -265,7 +269,6 @@ import UserLayout from '@/layout/UserLayout.vue'
       this.showConfirmation = false; // ปิด Modal เมื่อกดปุ่มตกลง
     },  
   },
-  
 };
   </script>
   

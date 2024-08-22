@@ -13,9 +13,8 @@ import UserLayout from '@/layout/UserLayout.vue'
               <div class="left grid grid-cols-1 divide-y divide-black " style="background-color: antiquewhite;" >
                 
                 <ul class="menu-list grid grid-cols-1 divide-y divide-black">
-                  <li v-for="(item, index) in filteredMenu" :key="index">
-                    <a href="#">{{ item }}</a>
-                  </li>
+                  
+                  
                 </ul>
               </div>
         
@@ -71,9 +70,16 @@ import UserLayout from '@/layout/UserLayout.vue'
             <!-- Header -->
             <div class="mb-6 text-center">
                 <label for="symptoms" class="text-lg font-semibold">ระบุอาการเบื้องต้น</label>
-                    <input type="text" id="symptoms" v-model="symptoms" placeholder="ระบุอาการ เช่น คัน, ผดผื่น ฯลฯ"
-                    class="block w-full mt-2 p-2 border border-gray-300 rounded-lg" />
-                <button @click="saveSymptoms" class="mt-4 w-full bg-blue-500 text-white p-2 rounded-lg">บันทึก</button>
+                <input
+                type="text"
+                id="symptoms"
+                v-model="symptoms"
+                placeholder="ระบุอาการ เช่น คัน, ผดผื่น ฯลฯ"
+                class="block w-full mt-2 p-2 border border-gray-300 rounded-lg"
+                />
+                <button @click="saveSymptoms" class="mt-4 w-full bg-blue-500 text-white p-2 rounded-lg">
+                บันทึก
+                </button>
             </div>
 
             <!-- Chronic Disease Section -->
@@ -81,10 +87,10 @@ import UserLayout from '@/layout/UserLayout.vue'
                 <label class="block font-medium">โรคประจำตัว :</label>
                 <div class="flex items-center space-x-4 mt-2">
                     <label class="flex items-center">
-                        <input type="checkbox" v-model="chronicDisease" value="yes" class="mr-2" /> มี
+                        <input type="radio" v-model="chronicDisease" value="yes" class="mr-2" /> มี
                     </label>
                     <label class="flex items-center">
-                        <input type="checkbox" v-model="chronicDisease" value="none" class="mr-2" /> ไม่มี
+                        <input type="radio" v-model="chronicDisease" value="none" class="mr-2" /> ไม่มี
                     </label>
                 </div>
                 <div v-if="chronicDisease.includes('yes')" class="mt-2">
@@ -99,10 +105,10 @@ import UserLayout from '@/layout/UserLayout.vue'
                 <label class="block font-medium">ยาหรืออาหารที่แพ้ :</label>
                 <div class="flex items-center space-x-4 mt-2">
                     <label class="flex items-center">
-                        <input type="checkbox" v-model="allergy" value="yes" class="mr-2" /> มี
+                        <input type="radio" v-model="allergy" value="yes" class="mr-2" /> มี
                     </label>
                     <label class="flex items-center">
-                        <input type="checkbox" v-model="allergy" value="none" class="mr-2" /> ไม่มี
+                        <input type="radio" v-model="allergy" value="none" class="mr-2" /> ไม่มี
                     </label>
                 </div>
                 <div v-if="allergy.includes('yes')" class="mt-2">
@@ -154,14 +160,13 @@ import UserLayout from '@/layout/UserLayout.vue'
 
         </div>
         <div class="flex justify-center items-center w-full mt-4 gap-4 mb-5">
-
-            <button class="bg-green-500 border border-green-500 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2 " @click="confirmAppointment" >
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-6 h-6 mr-3">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
-                <path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-242.7c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32L64 32zm0 96c0-17.7 14.3-32 32-32l192 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32L96 224c-17.7 0-32-14.3-32-32l0-64zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/></svg>
-            ยืนยันการบันทึก
+            <button class="bg-green-500 border border-green-500 text-white flex items-center justify-center px-6 py-4 rounded-2xl text-xl w-1/2" @click="confirmSave">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="currentColor" class="w-6 h-6 mr-3">
+                <path d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-242.7c0-17-6.7-33.3-18.7-45.3L352 50.7C340 38.7 323.7 32 306.7 32L64 32zm0 96c0-17.7 14.3-32 32-32l192 0c17.7 0 32 14.3 32 32l0 64c0 17.7-14.3 32-32 32L96 224c-17.7 0-32-14.3-32-32l0-64zM224 288a64 64 0 1 1 0 128 64 64 0 1 1 0-128z"/>
+                </svg>
+                ยืนยันการบันทึก
             </button>
-            
-      </div>
+        </div>
 
 
 
@@ -174,62 +179,129 @@ import UserLayout from '@/layout/UserLayout.vue'
     </template>
 
 <script>
+
+
+
+import { ref } from 'vue';
+
+const symptoms = ref('');
+const chronicDisease = ref('');
+const chronicDiseaseDetail = ref('');
+const allergy = ref('');
+const allergyDetail = ref('');
+const duration = ref();
+const durationUnit = ref('days');
+const selectedPhoto = ref(null);
+const showSummary = ref(false);
+
+function saveSymptoms() {
+  if (symptoms.value.trim() !== '') {
+    showSummary.value = true;
+  } else {
+    alert('กรุณากรอกอาการเบื้องต้น');
+  }
+}
+
+function saveChronicDisease() {
+  showSummary.value = true;
+}
+
+function saveAllergy() {
+  showSummary.value = true;
+}
+
+function selectPhoto(event) {
+  const file = event.target.files[0];
+  if (file) {
+    selectedPhoto.value = URL.createObjectURL(file);
+  }
+  showSummary.value = true;
+}
+
+function saveDuration() {
+  showSummary.value = true;
+}
+
+async function confirmSave() {
+  const data = {
+    symptoms: symptoms.value,
+    chronicDisease: chronicDisease.value,
+    chronicDiseaseDetail: chronicDiseaseDetail.value,
+    allergy: allergy.value,
+    allergyDetail: allergyDetail.value,
+    duration: duration.value,
+    durationUnit: durationUnit.value,
+    selectedPhoto: selectedPhoto.value
+  };
+  console.log(data);
+  
+
+  try {
+    const response = await fetch('http://localhost:3000/api/savePatientData', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(this.patientData),
+});
+
+    if (!response.ok) {
+      throw new Error('Failed to save data');
+    }
+
+    const result = await response.json();
+    console.log('Data saved successfully:', result);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 export default {
   data() {
     return {
-      symptoms: '',
-      chronicDisease: [],
-      chronicDiseaseDetail: '',
-      allergy: [],
-      allergyDetail: '',
-      duration: 1,
-      durationUnit: 'days',
-      selectedPhoto: null,
-      showSummary: false,
+      patientData: {
+        symptoms: '',
+        chronicDisease: '',
+        chronicDiseaseDetail: '',
+        allergy: '',
+        allergyDetail: '',
+        duration: 1,
+        durationUnit: 'days',
+        selectedPhoto: null
+      }
     };
   },
-  watch: {
-    chronicDisease(val) {
-      if (val.includes('none')) {
-        this.chronicDisease = ['none'];
-        this.chronicDiseaseDetail = '';
-      } else if (val.includes('yes')) {
-        this.chronicDisease = ['yes'];
-      }
-    },
-    allergy(val) {
-      if (val.includes('none')) {
-        this.allergy = ['none'];
-        this.allergyDetail = '';
-      } else if (val.includes('yes')) {
-        this.allergy = ['yes'];
-      }
-    },
-  },
   methods: {
-    saveSymptoms() {
-      // Logic to save symptoms
-      this.showSummary = true;
-    },
-    saveChronicDisease() {
-      // Logic to save chronic disease details
-      this.showSummary = true;
-    },
-    saveAllergy() {
-      // Logic to save allergy details
-      this.showSummary = true;
-    },
-    selectPhoto(event) {
-      const file = event.target.files[0];
-      if (file) {
-        this.selectedPhoto = URL.createObjectURL(file);
-      }
-      this.showSummary = true;
-    },
-    saveDuration() {
-      // Logic to save duration
-      this.showSummary = true;
-    },
-  },
+        async confirmSave() {
+    try {
+        console.log('this.patientData:', this.patientData);
+        if (!this.patientData) {
+        throw new Error('patientData is not defined');
+        }
+
+        const data = this.patientData;
+
+        const response = await fetch('http://localhost:3000/api/savePatientData', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+        throw new Error('Failed to save data');
+        }
+
+        const result = await response.json();
+        console.log('Data saved successfully:', result);
+    } catch (error) {
+        console.error('Error:', error);
+    }
+    }
+
+  }
 };
+
+
+
 </script>

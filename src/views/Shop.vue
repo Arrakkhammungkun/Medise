@@ -202,7 +202,7 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
             </div>
         </div>
         <div class="flex container w-[90vw]  mx-auto">
-          <div class="sidebar">
+          <div class="sidebar bg-[#DDD5F3] h-[25vw] drop-shadow-xl">
             <div class="relative mx-10">
               <input
                 v-model="searchValue"
@@ -220,41 +220,41 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
             <h2 class="text-[1.2vw] font-semibold mb-1 pl-5">รายการสินค้า</h2>
 
             <div  class="grid grid-cols-3 gap-4 mx-4 text-[0.9vw]">
-              <a @click="searchmedic('All')"  class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[vw] hover:bg-[#3E296A] hover:text-white duration-300 ">
+              <a @click="searchmedic('All')"  class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[vw] hover:bg-[#3E296A] hover:text-white duration-300 ">
                 <!-- Icon for สินค้าทั้งหมด -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="white" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
                 <span class="mt-2 ">ทั้งหมด</span>
               </a>
-              <a @click="searchmedic('skincare')" class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
+              <a @click="searchmedic('skincare')" class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
                 <!-- Icon for สกินแคร์ -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M224 24l0 56-56 0c-13.3 0-24 10.7-24 24l0 48c0 13.3 10.7 24 24 24l56 0 0 56c0 13.3 10.7 24 24 24l48 0c13.3 0 24-10.7 24-24l0-56 56 0c13.3 0 24-10.7 24-24l0-48c0-13.3-10.7-24-24-24l-56 0 0-56c0-13.3-10.7-24-24-24L248 0c-13.3 0-24 10.7-24 24zM559.7 392.2c17.8-13.1 21.6-38.1 8.5-55.9s-38.1-21.6-55.9-8.5L392.6 416 272 416c-8.8 0-16-7.2-16-16s7.2-16 16-16l16 0 64 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-64 0-16 0-78.3 0c-29.1 0-57.3 9.9-80 28L68.8 384 32 384c-17.7 0-32 14.3-32 32l0 64c0 17.7 14.3 32 32 32l160 0 160.5 0c29 0 57.3-9.3 80.7-26.5l126.6-93.3zm-367-8.2l.9 0c0 0 0 0 0 0c-.3 0-.6 0-.9 0z"/></svg>
                 <span class="mt-2">สกินแคร์</span>
               </a>
-              <a @click="searchmedic('Common-medicine')" class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
+              <a @click="searchmedic('Common-medicine')" class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
                 <!-- Icon for ยาสามัญ -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M504.3 11.1C493.3-1.6 474.5-3.7 461 6.2L252.3 160l144.9 0L502.6 54.6c11.8-11.8 12.6-30.8 1.6-43.5zM32 192c-17.7 0-32 14.3-32 32s14.3 32 32 32c0 82.5 43.4 147.7 123.9 176.2c-11.1 13.9-19.4 30.3-23.9 48.1C127.6 497.4 142.3 512 160 512l192 0c17.7 0 32.4-14.6 28.1-31.7c-4.5-17.8-12.8-34.1-23.9-48.1C436.6 403.7 480 338.5 480 256c17.7 0 32-14.3 32-32s-14.3-32-32-32L32 192z"/></svg>
                 
                 <span class="mt-2">ยาสามัญ</span>
               </a>
-              <a @click="searchmedic('Personal-medicine')" class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+              <a @click="searchmedic('Personal-medicine')" class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M320 64c-27.2 0-53.8 8-76.4 23.1l-37.1 24.8c-15.8 10.5-34.3 16.1-53.3 16.1l-9.2 0-16 0-72 0c-30.9 0-56 25.1-56 56l0 85c0 55.1 37.5 103.1 90.9 116.4l108 27C233.8 435 275.4 448 320 448s86.2-13 121.1-35.5l108-27C602.5 372.1 640 324.1 640 269l0-85c0-30.9-25.1-56-56-56l-72 0-16 0-9.2 0c-19 0-37.5-5.6-53.3-16.1L396.4 87.1C373.8 72 347.2 64 320 64zM132.3 346.3l-29.8-7.4C70.5 330.9 48 302.1 48 269l0-85c0-4.4 3.6-8 8-8l40 0 0 48c0 45.1 13.4 87.2 36.3 122.3zm405.1-7.4l-29.8 7.4c23-35.2 36.3-77.2 36.3-122.3l0-48 40 0c4.4 0 8 3.6 8 8l0 85c0 33-22.5 61.8-54.5 69.9zM192 208c0-8.8 7.2-16 16-16l224 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-224 0c-8.8 0-16-7.2-16-16zm16 48l224 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-224 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm16 80c0-8.8 7.2-16 16-16l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16z"/></svg>
                 
                 <span class="mt-2">รักษาโรค</span>
               </a>
-              <a @click="searchmedic('protein')" class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
+              <a @click="searchmedic('protein')" class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
                 <!-- Icon for อาหารเสริม -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M0 32C0 14.3 14.3 0 32 0L352 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64L0 32zm32 96l320 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zM160 240l0 48-48 0c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l48 0 0 48c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-48 48 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-48 0 0-48c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16z"/></svg>
                 
                 <span class="mt-2">โปรตีน</span>
               </a>
-              <a @click="searchmedic('vitamins')" class="bg-blue-500 text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
+              <a @click="searchmedic('vitamins')" class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[7vw] hover:bg-[#3E296A] hover:text-white duration-300">
                 <!-- Icon for วิตามิน -->
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="currentColor" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
                   <path d="M64 144c0-26.5 21.5-48 48-48s48 21.5 48 48l0 112-96 0 0-112zM0 144L0 368c0 61.9 50.1 112 112 112s112-50.1 112-112l0-178.4c1.8 19.1 8.2 38 19.8 54.8L372.3 431.7c35.5 51.7 105.3 64.3 156 28.1s63-107.5 27.5-159.2L427.3 113.3C391.8 61.5 321.9 49 271.3 85.2c-28 20-44.3 50.8-47.3 83l0-24.2c0-61.9-50.1-112-112-112S0 82.1 0 144zm296.6 64.2c-16-23.3-10-55.3 11.9-71c21.2-15.1 50.5-10.3 66 12.2l67 97.6L361.6 303l-65-94.8zM491 407.7c-.8 .6-1.6 1.1-2.4 1.6l4-2.8c-.5 .4-1 .8-1.6 1.2z"/></svg>
                 
                 <span class="mt-2 ">วิตามิน</span>
@@ -264,6 +264,7 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
           <div class="w-[70%]  p-[10px]   ">
             <div v-if="!noProductsFound" id="productlist" class="grid grid-cols-4 gap-[20px]  ">
               <div
+               
                 v-for="(product) in filteredProducts"
                 :key="product.id"
                 :class="['product-items my-3', product.type]"
@@ -321,7 +322,34 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
             </div> -->
             
           </div>
+          
         </div>
+        <div class="Detail-modal ">
+          
+          <div class="modal-bg"></div>
+          <div class="modal-page">
+            <h2>ข้อมูลสินค้า</h2><br>
+            <div class="modaldesc-content">
+              <img class="modaldesc-img" src="https://cx.lnwfile.com/_/cx/_raw/xo/m0/lg.jpg" alt="">
+              <div class="modaldesc-detail ">
+                <p class="text-[1.2vw]">ชื่อสินค้า</p>
+                <p class="text-[1vw]">500 บาท</p>
+                <br>
+                <p class="text-[#adadad]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam iste architecto eligendi eos perspiciatis deserunt perferendis facilis commodi eius magnam aliquid exercitationem saepe aut odio quod eum voluptate, fuga nemo.</p>
+                <br>
+                <div class="btn-control">
+                  <button class="btn">
+                    ปิด
+                  </button>
+                  <button class="btn btn-buy">
+                    เพิ่มตะกร้าสินค้า
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
     </UserLayout>
 
 </template>
@@ -356,11 +384,72 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
   transform: scale(1.03);
 }
 .product-img {
-  width: 100%;
-  height: 15vw;
+  width: 10vw;
+  height: 10vw;
   border-radius: 10px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   background-color: white;
   
 }
+
+.Detail-modal{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0,0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-page{
+  min-width: 50vw;
+  min-height: 30vw;
+  max-width: 70vw;
+  max-height: 50vw;
+  overflow: scroll;
+  background-color: white;
+  border-radius:15px ;
+  padding: 20px;
+  
+}
+
+.modaldesc-content{
+  
+  display: flex;
+  width: 100%;
+}
+.modaldesc-detail{
+  
+  margin-left: 10px;
+}
+
+.modaldesc-img{
+  width: 20vw;
+  height: 20vw;
+  object-fit: cover;
+  border-radius: 10px;
+  filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+  
+}
+.btn-control{
+  background: hotpink;
+}
+
+.btn{
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2vw;
+  transition: 0.3s;
+
+}
+.btn-buy{
+  background:linear-gradient(#4285F4, 0, #264D8E);
+  color: hotpink;
+}
+
 </style>

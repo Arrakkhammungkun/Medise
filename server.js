@@ -7,7 +7,7 @@ const port = 3000; // เปลี่ยนพอร์ตให้ตรงก�
 app.use(cors());
 app.use(express.json());
 
-app.post('/api/saveSymptom', (req, res) => {
+app.get('/api/product', (req, res) => {
   try {
     const data = req.body;
     console.log( data);

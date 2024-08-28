@@ -24,7 +24,7 @@ import UserLayout from '@/layout/UserLayout.vue'
                     </div>
                     <div class="relative z-10" >
                         <button class="w-[30rem] text-[#E1F5FE] text-[2.25rem] ml-[15vw] font-bold italic h-[4.25rem] rounded-[3.06rem] bg-[#2F7CE1]" >
-                            ปรึกษาแพทย์ทันทีgfgfdgdfgdfgdfgdfg
+                            ปรึกษาแพทย์ทันที
                         </button>
                     </div>
                 </div>         

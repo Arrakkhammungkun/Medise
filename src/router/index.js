@@ -52,7 +52,6 @@ const router = createRouter({
       component: Shop
     },
     {
-<<<<<<< HEAD
       path: '/cart',
       name: 'cart',
       component: Cart

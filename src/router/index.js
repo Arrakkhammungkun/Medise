@@ -6,12 +6,8 @@ import datadocterView from '@/views/DatadocterView.vue'
 import Appointment from '@/views/Appointment.vue'
 import Symptom from '@/views/Symptom.vue'
 import Shop from '@/views/Shop.vue'
-<<<<<<< HEAD
-import Cart from '@/views/Cart.vue'
-=======
 import Addproduct from '@/views/Addproduct.vue'   
 
->>>>>>> 21d66dc549cf13c9acb6bea1454f1ebaf00444dc
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,10 +48,11 @@ const router = createRouter({
       component: Shop
     },
     {
-      path: '/cart',
-      name: 'cart',
-      component: Cart
+      path: '/Addproduct',
+      name: 'Addproduct',
+      component: Addproduct
     },
+
 
   ]
 })

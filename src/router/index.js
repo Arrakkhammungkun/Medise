@@ -6,6 +6,7 @@ import datadocterView from '@/views/DatadocterView.vue'
 import Appointment from '@/views/Appointment.vue'
 import Symptom from '@/views/Symptom.vue'
 import Shop from '@/views/Shop.vue'
+import Cart from '@/views/Cart.vue'
 import Addproduct from '@/views/Addproduct.vue'   
 
 
@@ -48,10 +49,16 @@ const router = createRouter({
       component: Shop
     },
     {
+      path: '/cart',
+      name: 'cart',
+      component: Cart
+    },
+    {
       path: '/Addproduct',
       name: 'Addproduct',
       component: Addproduct
     },
+
 
   ]
 })

@@ -1,10 +1,15 @@
 <script setup>
 import UserLayout from '@/layout/UserLayout.vue'
-import { ref, onMounted, onUnmounted, computed} from 'vue';
+import { ref, onMounted, onUnmounted, computed, watch} from 'vue';
+import { products } from '@/stores/product';
 
 const currentIndex = ref(0);
-const totalSlides = ref(3); // You can adjust this based on the number of slides
+const totalSlides = ref(3); 
+const productIndex = ref(null); 
+const searchValue = ref('');
+const selectedCategory = ref('All');
 let intervalId = null;
+
 
 const goToSlide = (index) => {
   currentIndex.value = index;
@@ -36,133 +41,63 @@ onMounted(() => {
 onUnmounted(() => {
   stopAutoScroll();
 });
-const searchValue = ref('')
-const products = ref([
-  { id: 1,
-    name: 'OLAY Regenerist Micro-Sculpting Cream',
-    img: 'https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/lay/lay19049/g/27.jpg',
-    price: 999,
-    type: 'skincare' },
-  { id: 2,
-    name: 'TYLENOL Paracetamol',
-    img: 'https://punsuk.com/2623-6737-large_default/tylenol-paracetamol-500-100-.jpg',
-    price: 140,
-    type: 'Common-medicine' },
-  { id: 3,
-    name: 'Alcohol ALSOFF  70% Ethyl Alcohol Solution 60 ml.',
-    img: 'https://www.makro.pro/_next/image?url=https%3A%2F%2Fimages.mango-prod.siammakro.cloud%2FSOURCE%2F698bfec7187d481b890e6ecd70f50f4f&w=640&q=75',
-    price: 12,
-    type: 'Common-medicine' },
-    { id: 4,
-    name: 'Hemomin Strawberry Flavoured egg with powder beverage  400g.',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/2/3/235547_1__1.png',
-    price: 849,
-    type: 'protein' },
-    { id: 5,
-    name: 'Vistra acerola cherry ',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/img_hq/154857-1.jpg',
-    price: 632,
-    type: 'vitamins' },
-    { id: 6,
-    name: 'NIVEA Extra Bright 10 Super Vitamins & Skin Foods Body Serum 320ml',
-    img: 'https://img.lazcdn.com/g/p/e21f919bbcd52f1926c3456f25141739.jpg_720x720q80.jpg_.webp',
-    price: 233,
-    type: 'skincare' },
-    { id: 7,
-    name: 'Vistra Whey Protein Plus Powder ',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/img_hq/201286-1.jpg',
-    price: 463,
-    type: 'protein' },
-    { id: 8,
-    name: 'Gaviscon Peppermint  150 ml ',
-    img: 'https://down-th.img.susercontent.com/file/a5378c059e5e327b9983a82c91b23f8f',
-    price: 265,
-    type: 'Personal-medicine' },
-    { id: 9,
-    name: 'SK-ll GenOptics Aura Essence',
-    img: 'https://image-optimizer-th.production.sephora-asia.net/images/product_images/closeup_1_Product_4979006085747-SKII-Genoptics-Ultraura-Essence-50ml_36986ee0365ce913965c2ef4f5e91dd1cebd0335_1702969981.png',
-    price: 5300,
-    type: 'skincare' },
-    { id: 10,
-    name: 'Vistra Gotu Kola Extract Plus Zinc',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/2/1/214221.png',
-    price: 243,
-    type: 'vitamins' },
-    { id: 11,
-    name: 'Strepsils Honey Lemon 24s',
-    img: 'https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/catalog/product/40/88/8850360310040/thumbnail/8850360310040_4.jpg',
-    price:  24,
-    type: 'Common-medicine' },
-    { id: 12,
-    name: 'ยาธาตุน้ำขาว ตรากระต่ายบิน 200 ml.',
-    img: 'https://cx.lnwfile.com/_/cx/_raw/xo/m0/lg.jpg',
-    price: 60,
-    type: 'Common-medicine' },
-    { id: 13,
-    name: 'Centrum Silver 50+ Dietary Supplement ',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/2/1/218073_1.png',
-    price: 356,
-    type: 'vitamins' },
-    { id: 14,
-    name: 'BEPANTHEN OINTMENT ',
-    img: 'https://down-th.img.susercontent.com/file/2fe2ab2e2b9edd2366c83e96589e37d5',
-    price: 174,
-    type: 'Personal-medicine' },
-    { id: 15,
-    name: 'Royal-D Whey protein ',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/img_hq/252288_1.jpg',
-    price: 780,
-    type: 'protein' },
-    { id: 16,
-    name: 'ENO Fruit Salt ',
-    img: 'https://img.lazcdn.com/g/p/bbb1069aeb2f7d107005cf05ec8b1c92.jpg_720x720q80.jpg_.webp',
-    price: 10,
-    type: 'Personal-medicine' },
-    { id: 17,
-    name: 'Mega Ultrapro (Vanilla) ',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/2/3/236306.png',
-    price: 1794,
-    type: 'protein' },
-    { id: 18,
-    name: 'Lancôme New Advanced Génifique Serum ',
-    img: 'https://image-optimizer-th.production.sephora-asia.net/images/product_images/closeup_3614272623545-GNF30ml_3622b22eb000ef8ed0101b2a8a5eafba9ef1eda0_1619266614.png',
-    price: 3600,
-    type: 'skincare' },
-    { id: 19,
-    name: 'Za True White EX Essence Lotion',
-    img: 'https://down-th.img.susercontent.com/file/483ae61bd4524737a0e2386212399b20',
-    price: 420,
-    type: 'skincare' },
-    { id: 20,
-    name: 'Vistra Cla&L-Carnitine 1100MG Plus Vitamin E',
-    img: 'https://www.fascino.co.th/fasue-img/600/744/resize/img_hq/224278-1.jpg',
-    price: 643,
-    type: 'vitamins' },
-]);
 
-const selectedCategory = ref('All');
+
+
+
 const filteredProducts = computed(() => {
-  return products.value.filter(product =>
+  return products.filter(product =>
     (selectedCategory.value === 'All' || product.type === selectedCategory.value) &&
     product.name.toLowerCase().includes(searchValue.value.toLowerCase())
   );
 });
+// ฟังก์ชันเปลี่ยนหมวดหมู่
 function searchmedic(param) {
   selectedCategory.value = param;
 }
 function numberWithCommas(x) {
-    x = x.toString();
-    var pattern = /(-?\d+)(\d{3})/;
-    while (pattern.test(x))
-        x = x.replace(pattern, "$1,$2");
-    return x;
+  if (x === undefined || x === null || isNaN(x)) {
+    return ''; 
+  }
+  x = Number(x).toString(); 
+  var pattern = /(-?\d+)(\d{3})/;
+  while (pattern.test(x))
+    x = x.replace(pattern, "$1,$2");
+  return x;
 }
 
+// ฟังก์ชันค้นหาสินค้า
 function searchmedicine(event) {
-  // console.log(event.target.id);
   searchValue.value = event.target.value;
 }
+
 const noProductsFound = computed(() => filteredProducts.value.length === 0);
+
+// ฟังก์ชันเปิดDetail
+// ฟังก์ชันเปิดรายละเอียดสินค้า
+const selectedProduct = computed(() => {
+  if (productIndex.value === null || products[productIndex.value] === undefined) {
+    return {};
+  }
+  return products[productIndex.value];
+});
+
+function openProductDetail(index) {
+  productIndex.value = index;
+}
+
+function closeModal() {
+  productIndex.value = null;
+}
+const logSelectedProduct = () => {
+  console.log('Selected Product:', selectedProduct.value);
+};
+
+// Watch computed property
+watch(selectedProduct, (newValue) => {
+  console.log('Selected Product changed:', newValue);
+});
+
 
 
 
@@ -219,7 +154,7 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
             </div>
             <h2 class="text-[1.2vw] font-semibold mb-1 pl-5">รายการสินค้า</h2>
 
-            <div  class="grid grid-cols-3 gap-4 mx-4 text-[0.9vw]">
+            <div  class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3  mx-4 gap-4 text-[0.9vw]">
               <a @click="searchmedic('All')"  class="bg-[#C3EEFA] text-black flex flex-col justify-center items-center p-4 rounded-md h-[vw] hover:bg-[#3E296A] hover:text-white duration-300 ">
                 <!-- Icon for สินค้าทั้งหมด -->
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="white" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw]">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
@@ -261,94 +196,70 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
               </a>
             </div>
         </div>
-          <div class="w-[70%]  p-[10px]   ">
-            <div v-if="!noProductsFound" id="productlist" class="grid grid-cols-4 gap-[20px]  ">
-              <div
-               
-                v-for="(product) in filteredProducts"
-                :key="product.id"
-                :class="['product-items my-3', product.type]"
-
-              >
+        <div class="w-[70%] p-[10px]">
+          <div v-if="!noProductsFound" id="productlist" class="justify-items-center grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-4 gap-[20px] w-full">
+            <div
+              v-for="(product, index) in filteredProducts"
+              :key="product.id"
+              :class="['product-items my-3 ', product.type]"
               
-                <img class="product-img object-scale-down" :src="product.img" :alt="product.name" />
-                <p class="text-[1.2vw] truncate">{{ product.name }}</p>
-                <p class="text-[1vw]">{{ numberWithCommas(product.price) }} บาท</p>
-              </div>
-              
+            >
+              <img @click="openProductDetail(index)" class="product-img object-scale-down" :src="product.img" :alt="product.name" />
+              <p class="text-[0.9vw] truncate px-2">{{ product.name }}</p>
+              <p class="text-[0.9vw] px-2">{{ numberWithCommas(product.price) }} บาท</p>
+              <div class=" btns-control ">
+                  <button @click="addToCart(product)" class="btns btn-buy px-10 py-3">
+                    เพิ่มไปยังตะกร้า
+                  </button>
+                  
+                </div>
             </div>
-            <div v-else class="text-center text-red-500 font-semibold">
-              ขออภัยไม่พบสินค้า
-            </div>
-            <!-- <div class="product-items ">
-              <img class="product-img" src="https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/lay/lay19049/g/27.jpg" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img" src="https://img.lazcdn.com/g/p/e21f919bbcd52f1926c3456f25141739.jpg_720x720q80.jpg_.webp" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://image-optimizer-th.production.sephora-asia.net/images/product_images/closeup_1_Product_4979006085747-SKII-Genoptics-Ultraura-Essence-50ml_36986ee0365ce913965c2ef4f5e91dd1cebd0335_1702969981.png" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://down-th.img.susercontent.com/file/483ae61bd4524737a0e2386212399b20" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://punsuk.com/2623-6737-large_default/tylenol-paracetamol-500-100-.jpg" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://cx.lnwfile.com/_/cx/_raw/xo/m0/lg.jpg" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://www.makro.pro/_next/image?url=https%3A%2F%2Fimages.mango-prod.siammakro.cloud%2FSOURCE%2F698bfec7187d481b890e6ecd70f50f4f&w=640&q=75" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div>
-            <div class="product-items">
-              <img class="product-img"  src="https://st.bigc-cs.com/cdn-cgi/image/format=webp,quality=90/public/media/catalog/product/40/88/8850360310040/thumbnail/8850360310040_4.jpg" alt="">
-              <p class="text-[1.2vw]">ชื่อสินค้า</p>
-              <p class="text-[1vw]">ราคา</p>
-            </div> -->
             
+          </div>
+          <div v-else class="text-center text-red-500 font-semibold">
+            ขออภัยไม่พบสินค้า
           </div>
           
         </div>
-        <div class="Detail-modal ">
+
+
           
+      </div>
+        <div>
+          
+          <div v-if="productIndex !== null" class="Detail-modal">
           <div class="modal-bg"></div>
           <div class="modal-page">
-            <h2>ข้อมูลสินค้า</h2><br>
-            <div class="modaldesc-content">
-              <img class="modaldesc-img" src="https://cx.lnwfile.com/_/cx/_raw/xo/m0/lg.jpg" alt="">
-              <div class="modaldesc-detail ">
-                <p class="text-[1.2vw]">ชื่อสินค้า</p>
-                <p class="text-[1vw]">500 บาท</p>
-                <br>
-                <p class="text-[#adadad]">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam iste architecto eligendi eos perspiciatis deserunt perferendis facilis commodi eius magnam aliquid exercitationem saepe aut odio quod eum voluptate, fuga nemo.</p>
-                <br>
-                <div class="btn-control">
-                  <button class="btn">
-                    ปิด
+            <div class="btn-control">
+                  <button class="btn-close" @click="closeModal">
+                    <svg  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" class="w-[2.2vw] h-[2.2vw] min-w-[2vw] min-h-[2vw] " fill="#adadad">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                    <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM175 175c9.4-9.4 24.6-9.4 33.9 0l47 47 47-47c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-47 47 47 47c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-47-47-47 47c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l47-47-47-47c-9.4-9.4-9.4-24.6 0-33.9z"/></svg>
+
                   </button>
-                  <button class="btn btn-buy">
-                    เพิ่มตะกร้าสินค้า
+                </div>
+
+                <br>
+                <div class="modaldesc-content" >
+                  <img :src="selectedProduct.img" alt="" class="modaldesc-img" />
+                  <div class="modaldesc-detail">
+                    <p class=" text-[1.2vw]">{{ selectedProduct.name }}</p>
+                    <p class="text-[1vw]">{{ numberWithCommas(selectedProduct.price) }} บาท</p>
+                    <br>
+                    <p class="text-[#adadad]">{{ selectedProduct.descriptsion }}</p>
+                  </div>
+                </div>
+                <div class="btn-control">
+                  <button @click="addToCart(product)" class="btn btn-buy">
+                    เพิ่มไปยังตะกร้า
                   </button>
                 </div>
               </div>
             </div>
-          </div>
         </div>
+        
+
+        
+        
         
     </UserLayout>
 
@@ -369,23 +280,25 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
 .sidebar {
   width: 30%;
   padding: 10px;
-  
+  height: 30%;
   border-radius: 20px;
   
 }
 .product-items {
   cursor: pointer;
   transition: 0.3s;
-  width: 100%;
+  width: 10vw;
   height: 17vw;
-  
+  background-color: white;
+  border-radius: 10px;
+  filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 .product-items:hover {
   transform: scale(1.03);
 }
 .product-img {
-  width: 10vw;
-  height: 10vw;
+  width: 100%;
+  height: 70%;
   border-radius: 10px;
   filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
   background-color: white;
@@ -435,9 +348,15 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
   
 }
 .btn-control{
-  background: hotpink;
+  
+  display: flex;
+  justify-content: flex-end;
 }
-
+.btns-control{
+  
+  display: flex;
+  justify-content: center;
+}
 .btn{
   padding: 10px 20px;
   cursor: pointer;
@@ -447,9 +366,48 @@ const noProductsFound = computed(() => filteredProducts.value.length === 0);
   transition: 0.3s;
 
 }
-.btn-buy{
-  background:linear-gradient(#4285F4, 0, #264D8E);
-  color: hotpink;
-}
 
+.btns{
+  
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 0.9vw;
+  transition: 0.3s;
+
+}
+.btn-buy{
+  background:black;
+  color: white;
+  
+}
+.btn-buy:hover{
+  background: #4285f4;
+  
+}
+.btn-close {
+    cursor: pointer;
+    transition: 0.3s;
+    width: auto;
+height: auto;
+  }
+
+  .btn-close:hover svg {
+    fill: #DB3434; 
+  }
+
+  .cartlist{
+    background-color: hotpink;
+  }
+
+  .cartlist-items{
+    background-color: #DB3434;
+  }
+  .cartlist-left{
+    background-color: aquamarine;
+  }
+
+  .cartlist-right{
+    background-color: darkgreen;
+  }
 </style>

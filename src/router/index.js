@@ -7,7 +7,9 @@ import Appointment from '@/views/Appointment.vue'
 import Symptom from '@/views/Symptom.vue'
 import Shop from '@/views/Shop.vue'
 import Cart from '@/views/Cart.vue'
-import Addproduct from '@/views/Addproduct.vue'   
+import Addproduct from '@/views/Addproduct.vue'
+import Userdetail_fordoc from '@/views/Userdetail_fordoc.vue'
+import OrderSum from '@/views/OrderSum.vue'      
 
 
 const router = createRouter({
@@ -57,6 +59,16 @@ const router = createRouter({
       path: '/Addproduct',
       name: 'Addproduct',
       component: Addproduct
+    },
+    {
+      path: '/userdetail_fordoc',
+      name: 'userdetail_fordoc',
+      component: Userdetail_fordoc
+    },
+    {
+      path: '/orderSum',
+      name: 'orderSum',
+      component: OrderSum
     },
 
 

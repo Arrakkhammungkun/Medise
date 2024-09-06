@@ -11,7 +11,8 @@ import Addproduct from '@/views/Addproduct.vue'
 import Userdetail_fordoc from '@/views/Userdetail_fordoc.vue'
 import OrderSum from '@/views/OrderSum.vue'     
 import Patient from '@/views/Patient.vue'
-import Consult  from '@/views/Consult.vue'
+import Consult  from '@/views/Consult.vue'  
+import Preparproducts  from '@/views/Preparproducts.vue'      
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -80,6 +81,11 @@ const router = createRouter({
       path: '/Consult',
       name: 'Consult',
       component : Consult
+    },
+    {
+      path: '/Preparproducts',
+      name: 'Preparproducts',
+      component : Preparproducts
     },
     
   ]

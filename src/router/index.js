@@ -9,8 +9,9 @@ import Shop from '@/views/Shop.vue'
 import Cart from '@/views/Cart.vue'
 import Addproduct from '@/views/Addproduct.vue'
 import Userdetail_fordoc from '@/views/Userdetail_fordoc.vue'
-import OrderSum from '@/views/OrderSum.vue'      
-import EditaddProductView from '@/views/EditaddProductView.vue'
+import OrderSum from '@/views/OrderSum.vue'     
+import Patient from '@/views/Patient.vue'
+import Consult  from '@/views/Consult.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -71,12 +72,16 @@ const router = createRouter({
       component: OrderSum
     },
     {
-      path: '/editaddproduct',
-      name: 'editaddproduct',
-      component: EditaddProductView
+      path: '/Patient',
+      name: 'Patient',
+      component: Patient
     },
-
-
+    {
+      path: '/Consult',
+      name: 'Consult',
+      component : Consult
+    },
+    
   ]
 })
 

@@ -10,7 +10,8 @@ import Cart from '@/views/Cart.vue'
 import Addproduct from '@/views/Addproduct.vue'
 import Userdetail_fordoc from '@/views/Userdetail_fordoc.vue'
 import OrderSum from '@/views/OrderSum.vue'      
-
+import Choosedoc from '@/views/Choosedoc.vue'
+import Profile_User from '@/views/Profile_User.vue'  
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -69,6 +70,16 @@ const router = createRouter({
       path: '/orderSum',
       name: 'orderSum',
       component: OrderSum
+    },
+    {
+      path: '/choosedoc',
+      name: 'choosedoc',
+      component: Choosedoc 
+    },
+    {
+      path: '/profile_User',
+      name: 'profile_User',
+      component: Profile_User 
     },
 
 

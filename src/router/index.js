@@ -12,7 +12,7 @@ import Userdetail_fordoc from '@/views/Userdetail_fordoc.vue'
 import OrderSum from '@/views/OrderSum.vue'      
 import Choosedoc from '@/views/Choosedoc.vue'
 import Profile_User from '@/views/Profile_User.vue'  
-
+import EditaddProductView from '@/views/EditaddProductView.vue'
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -81,6 +81,12 @@ const router = createRouter({
       name: 'profile_User',
       component: Profile_User 
     },
+    {
+      path: '/editaddProductView',
+      name: 'editaddProductView',
+      component: EditaddProductView 
+    },
+
 
 
   ]

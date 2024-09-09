@@ -15,7 +15,7 @@
                 <img :src="imageSrc || 'src/img/user.png'" alt="" class="w-[5vw] h-[5vw] object-cover rounded-full flex mr-4 bg-white">
               </div>
               <div>
-                <div class="link link-hover font-bold text-[#4285F4]" @click="cancelEditing">อนุรักษา คำมุงคุล</div>
+                <div :class="{'text-black': isEditing, 'text-[#4285F4]': !isEditing}" class="link link-hover font-bold text-[#4285F4]" @click="cancelEditing">อนุรักษา คำมุงคุล</div>
                 <div class="link link-hover font-normal text-base text-[#7F7F7F]" @click="startEditing">แก้ไขข้อมูลส่วนตัว</div>
               </div>
               <!-- Hidden file input -->
@@ -29,7 +29,7 @@
               <div>
                 <div class="link link-hover font-bold text-black">บัญชีของฉัน</div>
                 <div class="ml-2">
-                  <div class="link link-hover font-normal text-base text-[#7F7F7F]">ข้อมูลส่วนตัว</div>
+                  <div :class="{'text-[#7F7F7F]': !isEditing, 'text-[#4285F4]': isEditing}" class="link link-hover font-normal text-base " @click="startEditing">ข้อมูลส่วนตัว</div>
                   <div class="link link-hover font-normal text-base text-[#7F7F7F]">บัญชีธนาคาร&บัตร</div>
                   <div class="link link-hover font-normal text-base text-[#7F7F7F]">การตั้งค่าความเป็นส่วนตัว</div>
                   <div class="link link-hover font-normal text-base text-[#7F7F7F]">เปลี่ยนรหัสผ่าน</div>

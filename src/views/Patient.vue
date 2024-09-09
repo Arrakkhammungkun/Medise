@@ -42,7 +42,8 @@
 
   
   <div class="mt-4">
-    <button class="w-44 bg-green-600 text-white mx-96  py-2 rounded-lg hover:bg-green-400">ให้คำปรึกษา</button>
+    <button class="w-full bg-green-600 text-white   py-2 rounded-lg hover:bg-green-400">ให้คำปรึกษา</button>
   </div>
 </div>
 </template>
+Patient

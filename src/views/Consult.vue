@@ -1,6 +1,6 @@
 <template>
     <div class=" min-h-screen p-4">
-      <div class="bg-[#E1F5FE] shadow-lg rounded-lg p-6 max-w-4xl mx-auto">
+      <div class="bg- shadow-lg rounded-lg p-6 max-w-4xl mx-auto">
         <h2 class="text-3xl font-bold mb-4 text-blue-900">จัดการแพทย์</h2>
         <p class="text-base font-medium  text-gray-800 mb-6">สามารถเพิ่มแพทย์และการจัดการข้อมูลของแพทย์
 

@@ -74,19 +74,19 @@ const router = createRouter({
       component: OrderSum
     },
     {
-      path: '/Patient',
-      name: 'Patient',
-      component: Patient
+      path: '/choosedoc',
+      name: 'choosedoc',
+      component: Choosedoc 
     },
     {
-      path: '/Consult',
-      name: 'Consult',
-      component : Consult
+      path: '/profile_User',
+      name: 'profile_User',
+      component: Profile_User 
     },
     {
-      path: '/Preparproducts',
-      name: 'Preparproducts',
-      component : Preparproducts
+      path: '/editaddProductView',
+      name: 'editaddProductView',
+      component: EditaddProductView 
     },
     {
       path: '/Consulttdoctor',

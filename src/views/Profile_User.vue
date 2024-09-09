@@ -10,7 +10,7 @@
         <div class="flex w-[25%] ">
           <div class="row  mb-5">
             <div class="flex mb-5">
-              <div @click="triggerFileInput" class="cursor-pointer">
+              <div  >
                 <!-- Image preview -->
                 <img :src="imageSrc || 'src/img/user.png'" alt="" class="w-[5vw] h-[5vw] object-cover rounded-full flex mr-4 bg-white">
               </div>
@@ -42,7 +42,7 @@
         <!-- Profile Information Display -->
         <div v-if="!isEditing" class="flex w-[75%]">
           <div class="w-[40%] h-full bg-white p-8 rounded shadow-md flex flex-col items-center justify-center">
-            <div class="cursor-pointer mb-4">
+            <div class=" mb-4">
               <img :src="imageSrc || 'src/img/user.png'" alt="" class="w-[13vw] h-[13vw] object-cover rounded-full bg-white">
             </div>
             <div class="text-center font-bold">
@@ -73,12 +73,11 @@
         <!-- Profile Edit Mode -->
         <div v-if="isEditing" class="flex w-[75%]">
           <div class="w-[40%] h-full bg-white p-8 rounded shadow-md flex flex-col items-center justify-center">
-            <div class="cursor-pointer mb-4">
+            <div  class=" mb-4">
               <img :src="imageSrc || 'src/img/user.png'" alt="" class="w-[13vw] h-[13vw] object-cover rounded-full bg-white">
             </div>
             <div class="text-center font-bold">
-              <a>อนุรักษา</a>
-              <a> คำมุงคุล</a>
+              <button @click="triggerFileInput" class="text-black border-2 p-2">เลือกรูป</button>
             </div>
           </div>
 
@@ -165,6 +164,11 @@ export default {
     return {
       isEditing: false, // For toggling between edit mode and view mode
       imageSrc: null, // For storing the profile image
+      firstName: '', // For storing the first name
+      lastName: '', // For storing the last name
+      age: '', // For storing the age
+      gender: '', // For storing the gender
+      email: '', // For storing the email
     };
   },
   methods: {
@@ -188,6 +192,16 @@ export default {
       this.isEditing = false; // Toggle back to view mode after saving changes
     },
   },
+  computed: {
+  isFormValid() {
+    // Check if all fields have valid values
+    return this.firstName.trim() !== '' &&
+           this.lastName.trim() !== '' &&
+           this.age.trim() !== '' &&
+           this.gender.trim() !== '' &&
+           this.email.trim() !== '';
+  },
+},
 };
 </script>
 

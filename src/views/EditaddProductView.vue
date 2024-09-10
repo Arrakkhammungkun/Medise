@@ -1,5 +1,5 @@
 <template>
-    <Nevbar>
+    <AdminLayout>
       <div id="header" class="bg-white">
         <div class="relative h-[100vh] mt-[6rem] bg-[url('https://elogic.co/wp-content/uploads/2019/04/istockphoto-1133980246-612x612-1.jpg')] bg-cover bg-center drop-shadow-md">
           <div>
@@ -73,74 +73,22 @@
           </div>
         </div>
       </div>
-    </Nevbar>
+    </AdminLayout>
 </template>
   
-<!--   
-  <script>
-  import axios from 'axios';
-  import Nevbar from '@/layout/Nevbar.vue';
-  import Swal from 'sweetalert2';
   
-  export default {
-    components: { Nevbar },
-  data() {
-  return {
-  name: '',
-  description: '',
-  price: '',
-  img: '',
-  category: '',
-  errors: [],
-  categories: []
-  };
+<script >
+
+import AdminLayout from '@/layout/AdminLayout.vue';
+
+export default {
+  components: {
+    AdminLayout,
   },
-  async mounted() {
-  try {
-  // ดึงข้อมูลหมวดหมู่จาก API
-  const response = await axios.get('http://localhost:3000/api/categories/add');
-  this.categories = response.data;
-  } catch (error) {
-  console.error('Failed to fetch categories', error);
-  }
-  },
-  methods: {
-  async handleSubmit() {
-  this.errors = [];
-  try {
-    
-    const response = await axios.post('http://localhost:3000/api/product/add', {
-      name: this.name,
-      description: this.description,
-      price: this.price,
-      img: this.img,
-      category: this.category
-    });
-    Swal.fire({
-          title: 'บันทึกสินค้าสำเร็จ',
-          text: 'ข้อมูลสินค้าของคุณถูกบันทึกเรียบร้อยแล้ว',
-          icon: 'success',
-          confirmButtonText: 'ตกลง'
-        });
-    
-    this.name = '';
-    this.description = '';
-    this.price = '';
-    this.img = '';
-    this.category = '';
-  } catch (error) {
-    if (error.response && error.response.data.errors) {
-      this.errors = error.response.data.errors;
-    } else {
-      console.error(error);
-    }
-  }
-  }
-  }
-  };
-  </script>
+}
+</script>
   
   <style scoped>
   
   </style>
-   -->
+  

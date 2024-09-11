@@ -228,7 +228,7 @@ watch(selectedProduct, (newValue) => {
         <div>
           
           <div v-if="productIndex !== null" class="Detail-modal">
-          <div class="modal-bg"></div>
+          <div class="odal-bgm"></div>
           <div class="modal-page">
             <div class="btn-control">
                   <button class="btn-close" @click="closeModal">

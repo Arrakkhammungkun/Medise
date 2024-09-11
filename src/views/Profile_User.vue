@@ -164,35 +164,35 @@
       
     </div>
     <div>
-      <div v-if="isModalOpen" class="Detail-modal" @click="closeModal">
-        <div class="modal-bgm"></div>
+      <div v-if="isModalOpen" class="Detail-modal" >
+        <div class="modal-bgm " ></div>
         <div class="modal-page ">
           <h2 class="text-3xl font-bold pb-2 mb-5 ml-4">ที่อยู่ใหม่</h2>
           <div>
             <!-- Add input fields for new address -->
-            <div class="font-semibold text-2xl text-black ml-4">ชื่อจริง
+            <div class="font-semibold text-black ml-4">ชื่อจริง
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">นามสกุล
+            <div class="font-semibold text-black ml-4">นามสกุล
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">จังหวัด
+            <div class="font-semibold text-black ml-4">จังหวัด
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">อำเภอ
+            <div class="font-semibold text-black ml-4">อำเภอ
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">ตำบล
+            <div class="font-semibold text-black ml-4">ตำบล
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">บ้านเลขที่ ซอย,หมู่,ถนน แขวง/ตำบล
+            <div class="font-semibold text-black ml-4">บ้านเลขที่ ซอย,หมู่,ถนน แขวง/ตำบล
               <input type="text" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full">
             </div>
-            <div class="font-semibold text-2xl text-black ml-4">รหัสไปรษณีย์
+            <div class="font-semibold text-black ml-4">รหัสไปรษณีย์
               <input type="number" pattern="\d{5}" title="กรุณาใส่รหัสไปรษณีย์ 5 หลัก" class="block font-normal text-[#7F7F7F] my-2 border-2 w-full" required>
             </div>
 
-            <div class="flex justify-end my-10">
+            <div class="flex justify-end mt-10">
               <button @click="closeModal" class="btn-close flex text-black text-xl font-bold hover:bg-[#C4C4C4] rounded-lg p-2 w-auto mr-4">
                 ยกเลิก
               </button>
@@ -286,8 +286,8 @@ export default {
 
 .modal-page{
   min-width: 35vw;
-  min-height: 35vw;
-  max-width: 70vw;
+  min-height: auto;
+  max-width: 55vw;
   max-height: 55vw;
   
   background-color: white;

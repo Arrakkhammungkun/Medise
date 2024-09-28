@@ -18,6 +18,9 @@ import Choosedoc from '@/views/Choosedoc.vue'
 import Profile_User from '@/views/Profile_User.vue'
 import EditaddProductView from '@/views/EditaddProductView.vue'
 import updeateorder from '@/views/updeateorder.vue'
+import reatmentqueue from '@/views/reatmentqueue.vue'
+
+
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -116,6 +119,11 @@ const router = createRouter({
       path: '/updeateorder',
       name: 'updeateorder',
       component :updeateorder
+    },
+    {
+      path: '/reatmentqueue',
+      name: 'reatmentqueue',
+      component : reatmentqueue
     },
   
   ]

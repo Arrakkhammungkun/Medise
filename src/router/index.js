@@ -40,8 +40,8 @@ const router = createRouter({
       component: SingUpView
     },
     {
-      path: '/datadocter',
-      name: 'datadocter',
+      path: '/datadocterView',
+      name: 'datadocterView',
       component: datadocterView
     },
     {

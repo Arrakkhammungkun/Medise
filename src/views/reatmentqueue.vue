@@ -24,7 +24,7 @@
         
       </div>
 
-      <div class="flex justify-between items-center mt-12 border-2 border-blue-400 p-4 bg-white">
+      <div class="flex justify-between items-center mt-6 border-2 border-blue-400 p-4">
         <h3 class="text-lg font-semibold">Queue Room (1)</h3>
         <button class="text-black hover:underline flex items-center ml-4">
           ดูทั้งหมด

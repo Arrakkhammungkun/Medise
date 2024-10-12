@@ -19,6 +19,7 @@ import Profile_User from '@/views/Profile_User.vue'
 import EditaddProductView from '@/views/EditaddProductView.vue'
 import updeateorder from '@/views/updeateorder.vue'
 import reatmentqueue from '@/views/reatmentqueue.vue'
+import chat from '@/views/chat.vue'
 
 
 
@@ -124,6 +125,11 @@ const router = createRouter({
       path: '/reatmentqueue',
       name: 'reatmentqueue',
       component : reatmentqueue
+    },
+    {
+      path: '/chat',
+      name: 'chat',
+      component : chat
     },
   
   ]

@@ -1,25 +1,32 @@
 <template>
   <div class="min-h-screen bg-[#F0F8FF] flex flex-col items-center">
     
-    <section class="relative p-6 bg-[#E1F5FE] shadow-md rounded-lg w-10/12 border border-blue-300 mt-16">
+    <section class="relative p-6 bg-[#E1F5FE] shadow-md rounded-lg w-10/12 border  mt-16">
       
       <div class="flex items-start relative">
-        <div class="flex-shrink-0  ">
+        <div class="absolute top-0 left-32 transform -translate-x-1/2 -translate-y-1/2">
           <img src="https://static.vecteezy.com/system/resources/previews/038/512/906/original/illustration-women-portrait-free-vector.jpg" alt="Profile" class="w-48 h-48 rounded-full border-4 border-white shadow-lg">
         </div>
         
-        <div class="flex-grow  mt-20  ml-6"> 
+        <div class="flex-grow  ml-60"> 
           <h2 class="text-xl font-bold">แพทย์หญิง อุรานีย์ อินชนะ</h2>
           <div class="flex items-center space-x-2 mt-2">
             <span class="text-gray-500">Status:</span>
             <span class="text-green-500 font-medium">Online</span>
           </div>
+          
         </div>
+        <button>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="w-9 h-9 bg-white rounded-lg p-1">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+            <path d="M224 0c-17.7 0-32 14.3-32 32l0 19.2C119 66 64 130.6 64 208l0 25.4c0 45.4-15.5 89.5-43.8 124.9L5.3 377c-5.8 7.2-6.9 17.1-2.9 25.4S14.8 416 24 416l400 0c9.2 0 17.6-5.3 21.6-13.6s2.9-18.2-2.9-25.4l-14.9-18.6C399.5 322.9 384 278.8 384 233.4l0-25.4c0-77.4-55-142-128-156.8L256 32c0-17.7-14.3-32-32-32zm0 96c61.9 0 112 50.1 112 112l0 25.4c0 47.9 13.9 94.6 39.7 134.6L72.3 368C98.1 328 112 281.3 112 233.4l0-25.4c0-61.9 50.1-112 112-112zm64 352l-64 0-64 0c0 17 6.7 33.3 18.7 45.3s28.3 18.7 45.3 18.7s33.3-6.7 45.3-18.7s18.7-28.3 18.7-45.3z"/>
+          </svg>
+        </button>
+        
       </div>
 
-      <div class="flex justify-between items-center mt-6 border-2 border-blue-400 p-4">
+      <div class="flex justify-between items-center mt-12 border-2 border-blue-400 p-4 bg-white">
         <h3 class="text-lg font-semibold">Queue Room (1)</h3>
-        <button class="text-blue-500 hover:underline flex items-center ml-4">
+        <button class="text-black hover:underline flex items-center ml-4">
           ดูทั้งหมด
           <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -27,107 +34,206 @@
         </button>
       </div>
 
-      <div class="space-y-4 mt-8">
-        <div class="flex items-start justify-between bg-white p-4 rounded-lg shadow-md border border-black">
-          <div class="flex items-start">
-            <img src="https://cdn.pixabay.com/photo/2022/10/19/01/02/woman-7531315_1280.png" alt="Patient Avatar" class="w-16 h-16 border rounded-full">
-            <div class="ml-4">
+      <div class="space-y-4 mt-8 border border-black p-4 rounded-lg mx-4 overflow-auto max-h-[23vw]">
+        <button class="flex items-stretch   rounded-lg h-full w-full shadow-md ransition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300">
+          <div class="flex items-start text-start">
+            <img src="https://cdn.pixabay.com/photo/2022/10/19/01/02/woman-7531315_1280.png" alt="Patient Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 w-48">
               <p class="font-semibold">นางสาว อนุรักษา คำมุกดา</p>
               <p class="text-sm text-gray-500">อายุ: 32 ปี</p>
               <p class="text-sm text-gray-500">น้ำหนัก: 55 กิโลกรัม</p>
               <p class="text-sm text-gray-500">ส่วนสูง: 165 เซนติเมตร</p>
-              <p class="text-sm text-gray-500 mt-2">อาการเบื้องต้น: เมื่อการอาการเจ็บและคัดจมูกในช่วงเช้า</p>
             </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-red-500 font-semibold">00:20:00</span>
-            <i class="fas fa-hourglass-half text-gray-500"></i>
-            <span class="text-gray-500">Waiting</span>
-          </div>
-        </div>
 
-        <div class="flex items-start justify-between bg-white p-4 rounded-lg shadow-md border border-black">
-          <div class="flex items-start">
-            <img src="https://i.pinimg.com/564x/5f/86/c7/5f86c7bd996953e34601ca594d754a2b.jpg" alt="Patient Avatar" class="w-16 h-16 border rounded-full">
-            <div class="ml-4">
+          
+          <div class="bg-white flex-1 ml-4 p-4 flex  border border-black">
+            <p class="font-semibold">อาการเบื้องต้น: มีอาการเจ็บและคัดจมูกในช่วงเช้า หรือเมื่ออากาศเปลี่ยนแปลง</p>
+          </div>
+
+          
+          <div class="flex flex-col items-center space-y-2 h-full ml-4">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-5 h-5 mr-2">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <path d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64l0 11c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437l0 11c-17.7 0-32 14.3-32 32s14.3 32 32 32l32 0 256 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-11c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1l0-11c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 0 64 0 32 0zM96 75l0-11 192 0 0 11c0 25.5-10.1 49.9-28.1 67.9L192 210.7l-67.9-67.9C106.1 124.9 96 100.4 96 75z"/>
+              </svg>
+              <span class="text-gray-500">Waiting...</span>
+            </div>
+            
+            <i class="fas fa-hourglass-half text-gray-500"></i>
+            <span class="text-red-500 font-semibold">00:20:00</span>
+          </div>
+
+        </button>
+
+        <button class="flex items-stretch   rounded-lg h-full w-full shadow-md ransition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300">
+          <div class="flex items-start text-start">
+            <img src="https://i.pinimg.com/564x/5f/86/c7/5f86c7bd996953e34601ca594d754a2b.jpg" alt="Patient Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 w-48">
               <p class="font-semibold">นาย กษมน์ทร์ เรืองรุ่ง</p>
               <p class="text-sm text-gray-500">อายุ: 45 ปี</p>
               <p class="text-sm text-gray-500">น้ำหนัก: 78 กิโลกรัม</p>
               <p class="text-sm text-gray-500">ส่วนสูง: 175 เซนติเมตร</p>
-              <p class="text-sm text-gray-500 mt-2">อาการเบื้องต้น: ปวดหลังเรื้อรัง อาการเบาหวานชนิดที่ 2 ความดันโลหิตสูง</p>
             </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-orange-500 font-semibold">00:50:00</span>
-            <i class="fas fa-hourglass-half text-gray-500"></i>
-            <span class="text-gray-500">Waiting</span>
-          </div>
-        </div>
 
-        <div class="flex items-start justify-between bg-white p-4 rounded-lg shadow-md border border-black">
-          <div class="flex items-start">
-            <img src="https://i.pinimg.com/564x/14/ea/83/14ea839c03c3260eb4191d1d745a9827.jpg" alt="Patient Avatar" class="w-16 h-16 border rounded-full">
-            <div class="ml-4">
+          
+          <div class="bg-white flex-1 ml-4 p-4 flex  border border-black">
+            <p class="font-semibold">อาการเบื้องต้น: ปวดหลังเรื้อรัง อาการเบาหวานชนิดที่ 2 ความดันโลหิตสูง</p>
+          </div>
+
+          
+          <div class="flex flex-col items-center space-y-2 h-full ml-4">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-5 h-5 mr-2">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <path d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64l0 11c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437l0 11c-17.7 0-32 14.3-32 32s14.3 32 32 32l32 0 256 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-11c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1l0-11c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 0 64 0 32 0zM96 75l0-11 192 0 0 11c0 25.5-10.1 49.9-28.1 67.9L192 210.7l-67.9-67.9C106.1 124.9 96 100.4 96 75z"/>
+              </svg>
+              <span class="text-gray-500">Waiting...</span>
+            </div>
+            
+            <i class="fas fa-hourglass-half text-gray-500"></i>
+            <span class="text-orange-500 font-semibold">00:50:00</span>
+          </div>
+
+        </button>
+
+        <button class="flex items-stretch  rounded-lg h-full w-full shadow-md ransition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300">
+          <div class="flex items-start text-start">
+            <img src="https://i.pinimg.com/564x/14/ea/83/14ea839c03c3260eb4191d1d745a9827.jpg" alt="Patient Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 w-48">
               <p class="font-semibold">นาย อารักษ์ คำมุกดา</p>
               <p class="text-sm text-gray-500">อายุ: 32 ปี</p>
               <p class="text-sm text-gray-500">น้ำหนัก: 85 กิโลกรัม</p>
               <p class="text-sm text-gray-500">ส่วนสูง: 180 เซนติเมตร</p>
-              <p class="text-sm text-gray-500 mt-2">อาการเบื้องต้น: ไข้หวัด ปวดศีรษะเรื้อรัง ภูมิแพ้</p>
             </div>
           </div>
-          <div class="flex items-center space-x-2">
-            <span class="text-green-500 font-semibold">03:00:00</span>
-            <i class="fas fa-hourglass-half text-gray-500"></i>
-            <span class="text-gray-500">Waiting</span>
+
+          
+          <div class="bg-white flex-1 ml-4 p-4 flex  border border-black">
+            <p class="font-semibold">อาการเบื้องต้น: ไข้หวัด ปวดศีรษะเรื้อรัง ภูมิแพ้</p>
           </div>
-        </div>
+
+          
+          <div class="flex flex-col items-center space-y-2 h-full ml-4">
+            <div class="flex items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" class="w-5 h-5 mr-2">!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.
+                <path d="M32 0C14.3 0 0 14.3 0 32S14.3 64 32 64l0 11c0 42.4 16.9 83.1 46.9 113.1L146.7 256 78.9 323.9C48.9 353.9 32 394.6 32 437l0 11c-17.7 0-32 14.3-32 32s14.3 32 32 32l32 0 256 0 32 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-11c0-42.4-16.9-83.1-46.9-113.1L237.3 256l67.9-67.9c30-30 46.9-70.7 46.9-113.1l0-11c17.7 0 32-14.3 32-32s-14.3-32-32-32L320 0 64 0 32 0zM96 75l0-11 192 0 0 11c0 25.5-10.1 49.9-28.1 67.9L192 210.7l-67.9-67.9C106.1 124.9 96 100.4 96 75z"/>
+              </svg>
+              <span class="text-gray-500">Waiting...</span>
+            </div>
+            
+            <i class="fas fa-hourglass-half text-gray-500"></i>
+            <span class="text-green-500 font-semibold">03:00:00</span>
+          </div>
+
+        </button>
+        
+
+        
+
       </div>
+
     </section>
 
 
     
     
 
-    <section class="mt-4 p-4 bg-[#E1F5FE] shadow-md rounded-lg w-10/12  border border-black">
-      <div class="flex justify-between items-center">
-        <h3 class="text-lg font-semibold">Open for queues</h3>
-        <label class="flex items-center">
-          <input type="checkbox" class="form-checkbox">
-          <span class="ml-2">Toggle</span>
-        </label>
+    <section class="mt-4 p-4 bg-[#E1F5FE] shadow-md rounded-lg w-10/12 border border-black">
+      <div class="flex justify-between items-center ">
+        <h3 class="text-lg font-semibold">นัดหมาย</h3>
       </div>
 
-      <div class="border-t border-black my-2"></div>
+      <div class="border-t border-black my-2 mx-4"></div>
 
       <h3 class="text-lg font-semibold">Today's upcoming</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        
-        <div class="bg-white p-4 rounded-lg shadow-md border border-black ">
-          <img src="https://i.pinimg.com/564x/f3/a1/8b/f3a18b98068beaa9fc9e178a8cf20800.jpg" alt="Upcoming Avatar" class="w-16 h-16 border rounded-full">
-          <div class="ml-4">
-            <p class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</p>
-            <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
-            <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
-            <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
-            <hr class="my-2">
-            <p class="text-sm text-gray-700">อาการเบื้องต้น: มีปัญหาเกี่ยวกับกระเพาะอาหาร เช่น โรคกระเพาะอาหารอักเสบเป็นบางครั้ง โดยเฉพาะเมื่อรับประทานอาหารที่มีเผ็ดจัดหรือมีน้ำแกงมากเกินไป</p>
-          </div>
-        </div>
 
-        <div class="bg-white p-4 rounded-lg shadow-md border border-black ">
-          <img src="https://i.pinimg.com/564x/a6/ae/76/a6ae761996c705601f09e8f7ccbadfe0.jpg" alt="Upcoming Avatar" class="w-16 h-16 border rounded-full">
-          <div class="ml-4">
-            <p class="font-semibold">นางสาว วศิกา เรืองรุ่ง</p>
-            <p class="text-sm text-gray-500">อายุ: 29 ปี</p>
-            <p class="text-sm text-gray-500">น้ำหนัก: 50 กิโลกรัม</p>
-            <p class="text-sm text-gray-500">ส่วนสูง: 170 เซนติเมตร</p>
-            <hr class="my-2">
-            <p class="text-sm text-gray-700">อาการเบื้องต้น: มีปัญหาเกี่ยวกับการนอนหลับ ไม่ค่อยนอนหลับสนิท ทำให้ตื่นขึ้นมาแล้วยังรู้สึกง่วงเพลียในบางวัน และมักจะมีอาการปวดหัวจากการพักผ่อนไม่เพียงพอ</p>
-          </div>
-        </div>
+      <div class="flex grid-cols-1 md:grid-cols-4 gap-8 mt-4 overflow-x-auto whitespace-nowrap ">
         
+        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw]">
+          <div class="flex flex-wrap items-center justify-center">
+            <a class="mr-2">เวลานัดหมาย :</a>
+            <p class="text-gray-500 bg-white py-1 px-4 rounded-lg border-2">20.00 น.</p>
+          </div>
+
+          <div class="flex items-center bg-white p-2 rounded-lg mt-2 drop-shadow-xl">
+            <img src="/src/img/User1.png" alt="Upcoming Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 text-start">
+              <span class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</span>
+              <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
+              <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
+              <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw]">
+          <div class="flex flex-wrap items-center justify-center">
+            <a class="mr-2">เวลานัดหมาย :</a>
+            <p class="text-gray-500 bg-white py-1 px-4 rounded-lg border-2">20.00 น.</p>
+          </div>
+
+          <div class="flex items-center bg-white p-2 rounded-lg mt-2 drop-shadow-xl">
+            <img src="/src/img/User1.png" alt="Upcoming Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 text-start">
+              <span class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</span>
+              <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
+              <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
+              <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw]">
+          <div class="flex flex-wrap items-center justify-center">
+            <a class="mr-2">เวลานัดหมาย :</a>
+            <p class="text-gray-500 bg-white py-1 px-4 rounded-lg border-2">20.00 น.</p>
+          </div>
+
+          <div class="flex items-center bg-white p-2 rounded-lg mt-2 drop-shadow-xl">
+            <img src="/src/img/User1.png" alt="Upcoming Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 text-start">
+              <span class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</span>
+              <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
+              <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
+              <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
+            </div>
+          </div>
+        </button>
+
+        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw]">
+          <div class="flex flex-wrap items-center justify-center">
+            <a class="mr-2">เวลานัดหมาย :</a>
+            <p class="text-gray-500 bg-white py-1 px-4 rounded-lg border-2">20.00 น.</p>
+          </div>
+
+          <div class="flex items-center bg-white p-2 rounded-lg mt-2 drop-shadow-xl">
+            <img src="/src/img/User1.png" alt="Upcoming Avatar" class="w-24 h-24 border rounded-lg">
+            <div class="ml-4 text-start">
+              <span class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</span>
+              <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
+              <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
+              <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
+            </div>
+          </div>
+        </button>
+
+        
+
+        
+        
+
+        
+
+        
+
+        
+
+        
+
       </div>
     </section>
+
   </div>
   
 </template>

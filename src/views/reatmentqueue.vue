@@ -150,16 +150,15 @@
 
       <div class="flex grid-cols-1 md:grid-cols-4 gap-8 mt-4 overflow-x-auto whitespace-nowrap ">
         
-        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw]">
+        <button class="bg-[#BAECFD] pt-2 px-1 pb-1 rounded-lg transition ease-out delay-150 hover:-translate-y-2 hover:scale-100 duration-300 inline-block min-w-[18.8vw] max-w-auto">
           <div class="flex flex-wrap items-center justify-center">
             <a class="mr-2">เวลานัดหมาย :</a>
             <p class="text-gray-500 bg-white py-1 px-4 rounded-lg border-2">20.00 น.</p>
           </div>
-
           <div class="flex items-center bg-white p-2 rounded-lg mt-2 drop-shadow-xl">
             <img src="/src/img/User1.png" alt="Upcoming Avatar" class="w-24 h-24 border rounded-lg">
             <div class="ml-4 text-start">
-              <span class="font-semibold">นางสาว กัลยารัต ยิ้มยอ</span>
+              <a class="font-semibold block truncate max-w-[180px]">นางสาว กัลยารัต ยิ้มยอ</a>
               <p class="text-sm text-gray-500">อายุ: 27 ปี</p>
               <p class="text-sm text-gray-500">น้ำหนัก: 60 กิโลกรัม</p>
               <p class="text-sm text-gray-500">ส่วนสูง: 158 เซนติเมตร</p>
@@ -238,7 +237,7 @@
   
 </template>
 
-<script>
+<script >
 export default {
   name: "Dashboard",
 };

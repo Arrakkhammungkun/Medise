@@ -19,12 +19,7 @@ import Profile_User from '@/views/Profile_User.vue'
 import EditaddProductView from '@/views/EditaddProductView.vue'
 import updeateorder from '@/views/updeateorder.vue'
 import reatmentqueue from '@/views/reatmentqueue.vue'
-import chat from '@/views/chat.vue'
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 17647197b5d732983ed357a4edd56fe06833a571
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -129,17 +124,9 @@ const router = createRouter({
       name: 'reatmentqueue',
       component : reatmentqueue
     },
-    {
-      path: '/chat',
-      name: 'chat',
-      component : chat
-    },
+    
   
-    {
-      path: '/chat',
-      name: 'chat',
-      component : chat
-    },
+    
   ]
 })
 
